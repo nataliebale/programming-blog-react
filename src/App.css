@@ -19,4 +19,5 @@ body{
 
 main{
   margin-top: 100px!important;
+  min-height: calc(100vh - 300px);
 }

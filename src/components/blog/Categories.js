@@ -2,7 +2,8 @@ import '../../styles/categories.css';
 import { categoriesConst } from "../../utils/categories.const";
 import Category from "./Category";
 
-function Categories(){
+function Categories({ handleClick }){
+
   return (
     <div>
       <div className='categories-header'>
@@ -12,7 +13,11 @@ function Categories(){
       <div className='categories-list'>
         { categoriesConst.map((item, index) => {
             return (
-              <Category key={index} title={item.title}></Category>
+              <Category
+                key={index}
+                title={item.title}
+                handleClick={() => {handleClick(item)}}
+              ></Category>
             );
           })
         }

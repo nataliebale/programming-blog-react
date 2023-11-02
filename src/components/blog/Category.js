@@ -1,13 +1,18 @@
 import Button from "../common/Button";
 import { useState } from "react";
 
-function Category({ title }){
+function Category({ title, handleClick }){
   const [isActive, setIsActive] = useState(false);
+
+  const onHandleClick = () => {
+    setIsActive(!isActive);
+    handleClick()
+  }
 
   return (
     <Button
       title={title}
-      handleClick={() => setIsActive(!isActive)}
+      handleClick={() => onHandleClick()}
       active={isActive}
     ></Button>
   );

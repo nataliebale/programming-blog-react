@@ -1,12 +1,15 @@
 .card{
     display: block;
     width: calc(100%/3 - 20px);
-    /*background: #2e3039;*/
-    /*border: 1px solid #2e3039;*/
     box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     border-radius: 10px;
     overflow: hidden;
     margin-top: 70px;
+    transition: 0.2s cubic-bezier(0.12, 0, 0.39, 0);
+}
+
+.card:hover{
+    transform: scale(1.05);
 }
 
 .card-image{
@@ -28,8 +31,6 @@
 }
 
 .card-date{
-    /*color: #4b5563;*/
-    /*color: #835252;*/
     color: #4b5563;
     font-size: 12px;
     margin-top: 20px;
@@ -39,7 +40,6 @@
     padding: 0.5rem 1rem;
     margin: 10px 6px 0 0;
     background: #333e6f;
-    /*background: #2e3039;*/
     border-radius: 7px;
     font-size: 12px;
     color: white;

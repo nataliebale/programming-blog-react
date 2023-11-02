@@ -1,11 +1,11 @@
 import '../../styles/cards.css';
-import { cardsConst } from "../../utils/cards.const";
 import Card from "./Card";
 
-function Cards(){
+function Cards({ cardsData }){
+
   return (
     <div className='cards'>
-      { cardsConst.map((item, index) => {
+      { cardsData.map((item, index) => {
         return (
           <Card
             key={index}
