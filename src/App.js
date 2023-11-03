@@ -5,66 +5,72 @@ import Search from "./components/blog/Search";
 import Categories from "./components/blog/Categories";
 import Cards from "./components/blog/Cards";
 import { cardsConst } from "./utils/cards.const";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 function App() {
   const [cardsData, setCardsData] = useState(cardsConst);
   const [searchString, setSearchString] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
 
+  useEffect(() => {
+    filterCardsData();
+  }, [selectedCategories, searchString]); // Add this useEffect
+
   const onSearch = (e) => {
     setSearchString(e);
-    filterCardsData();
   }
 
   const handleClick = (card) => {
-    const selected = selectedCategories.filter(item => {
-      return item.title.toLowerCase() === card.title.toLowerCase();
-    });
+    setSelectedCategories(prevCategories => {
+      const isSelected = prevCategories.some(item =>
+        item.title.toLowerCase() === card.title.toLowerCase()
+      );
 
-    let updatedCategories;
-    if(selected.length){
-      updatedCategories = selectedCategories.filter(item => {
-        return item.title.toLowerCase() !== card.title.toLowerCase();
-      });
-    } else {
-      updatedCategories = [...selectedCategories, card];
-    }
-    setSelectedCategories(updatedCategories);
-    filterCardsData();
+      if (isSelected) {
+        return prevCategories.filter(item =>
+          item.title.toLowerCase() !== card.title.toLowerCase()
+        );
+      } else {
+        return [...prevCategories, card];
+      }
+    });
   }
 
+  // Now filterCardsData will be called whenever selectedCategories or searchString changes
   const filterCardsData = () => {
-    let filteredCards = cardsConst.filter(item => {
-      return item.title.toLowerCase().includes(searchString.toLowerCase())
-    });
 
-    filteredCards = filteredCards.filter(item => {
-      selectedCategories.some(category => item.title === category.title);
-    });
+    if(!selectedCategories.length && !searchString) {
+      setCardsData(cardsConst);
+      return;
+    }
 
-    console.log(11111111111, filteredCards, selectedCategories,);
+    const selectedCategoryTitles = selectedCategories.map(category => category.title);
+    let filteredCards = cardsConst.filter(card =>
+      card.categories.some(category => selectedCategoryTitles.includes(category))
+    );
 
-    setCardsData(filteredCards);
+    if (searchString) {
+      filteredCards = filteredCards.filter(item =>
+        item.title.toLowerCase().includes(searchString.toLowerCase())
+      );
+    }
+
+    setCardsData(filteredCards); // No need to spread here
   }
 
   return (
     <div className='App'>
-      <Header></Header>
+      <Header />
       <main className="app-container">
-        <Search
-          handleChange={(e) => onSearch(e)}
-        ></Search>
-
+        <Search handleChange={onSearch} />
         <Categories
-          handleClick={(item) => handleClick(item)}
-        ></Categories>
-
-        <Cards
-          cardsData={cardsData}
-        ></Cards>
+          handleClick={handleClick}
+          clearCategories={() => setSelectedCategories([])}
+        />
+        <Cards cardsData={cardsData} />
       </main>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

@@ -2,13 +2,18 @@ import '../../styles/categories.css';
 import { categoriesConst } from "../../utils/categories.const";
 import Category from "./Category";
 
-function Categories({ handleClick }){
+function Categories({ handleClick, clearCategories }){
 
   return (
     <div>
       <div className='categories-header'>
         <p className='categories-title'>Search by topics</p>
-        <a className='clear-btn'>Clear all</a>
+        <a
+          className='clear-btn'
+          onClick={() => clearCategories()}
+        >
+          Clear all
+        </a>
       </div>
       <div className='categories-list'>
         { categoriesConst.map((item, index) => {
