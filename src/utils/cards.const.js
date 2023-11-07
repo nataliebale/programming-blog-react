@@ -9,7 +9,7 @@ export const cardsConst = [
   {
     title: "How to test React with Jest",
     image:
-      "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/226809488/original/3ce32c6b6c65531f44b8e88552f31019de3eacbd/write-tests-in-react-testing-library-jest-and-enzyme.jpeg",
+      "https://i.morioh.com/2020/02/25/6debffe5dcd0.jpg",
     date: "2023-03-15",
     categories: ["React", "Jest"],
   },
@@ -56,7 +56,7 @@ export const cardsConst = [
   {
     title: "Image Optimization in Next.js",
     image:
-      "https://nextjs.org/api/og?title=Optimizing:%20Images",
+      "https://i.ytimg.com/vi/h0gj4gOjz44/maxresdefault.jpg",
     date: "2023-02-01",
     categories: ["Next.js"],
   },
