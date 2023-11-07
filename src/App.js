@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     filterCardsData();
-  }, [selectedCategories, searchString]); // Add this useEffect
+  }, [selectedCategories, searchString]);
 
   const onSearch = (e) => {
     setSearchString(e);
@@ -37,26 +37,29 @@ function App() {
     });
   }
 
-  // Now filterCardsData will be called whenever selectedCategories or searchString changes
   const filterCardsData = () => {
+    setCardsData(cardsConst);
+    let filteredCards = cardsConst;
 
     if(!selectedCategories.length && !searchString) {
-      setCardsData(cardsConst);
       return;
     }
 
-    const selectedCategoryTitles = selectedCategories.map(category => category.title);
-    let filteredCards = cardsConst.filter(card =>
-      card.categories.some(category => selectedCategoryTitles.includes(category))
-    );
-
-    if (searchString) {
-      filteredCards = filteredCards.filter(item =>
-        item.title.toLowerCase().includes(searchString.toLowerCase())
+    if(selectedCategories.length) {
+      const selectedCategoryTitles = selectedCategories.map(category => category.title);
+      filteredCards = cardsConst.filter(card =>
+        card.categories.some(category => selectedCategoryTitles.includes(category))
       );
     }
 
-    setCardsData(filteredCards); // No need to spread here
+    if (searchString) {
+      filteredCards = filteredCards.filter(item => {
+          return item.title.toLowerCase().includes(searchString.toLowerCase())
+        }
+      );
+    }
+
+    setCardsData(filteredCards);
   }
 
   return (

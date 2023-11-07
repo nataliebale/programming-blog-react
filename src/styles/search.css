@@ -20,8 +20,9 @@
 
 .search-icon{
     position: absolute;
-    left: 0;
-    top: 0;
+    right: 20px;
+    top: 14px;
     font-size: 20px;
     color: white;
+    width: 30px;
 }
