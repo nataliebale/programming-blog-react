@@ -21,3 +21,21 @@ main{
   margin-top: 100px!important;
   min-height: calc(100vh - 300px);
 }
+
+.page-title{
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.page-description{
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.page-background-image {
+  width: 100%;
+  margin-right: 20px;
+}

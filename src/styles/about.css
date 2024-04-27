@@ -1,0 +1,21 @@
+.about-page {
+    color: #ffffff;
+    background: #2e3039;
+    padding: 20px;
+}
+
+.about-content {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.page-description {
+    flex: 1;
+    margin-bottom: 1em;
+    line-height: 1.6;
+}

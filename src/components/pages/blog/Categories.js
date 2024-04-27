@@ -1,5 +1,5 @@
-import '../../styles/categories.css';
-import { categoriesConst } from "../../utils/categories.const";
+import '../../../styles/categories.css';
+import { categoriesConst } from "../../../utils/categories.const";
 import Category from "./Category";
 
 function Categories({ handleClick, clearCategories }){

@@ -1,8 +1,7 @@
-import '../../styles/search.css';
-import deleteIcon from '../../assets/images/x-solid.svg';
-import searchIcon from '../../assets/images/magnifying-glass-solid.svg';
+import '../../../styles/search.css';
+import deleteIcon from '../../../assets/images/x-solid.svg';
+import searchIcon from '../../../assets/images/magnifying-glass-solid.svg';
 import { useState } from "react";
-import button from "../common/Button";
 
 function Search({ handleChange }){
   const [searchValue, setSearchValue] = useState('');

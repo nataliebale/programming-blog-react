@@ -2,9 +2,9 @@ import '../../../styles/logo.css';
 
 function Logo(){
   return (
-    <div className='logo-block'>
-        Jihoo Kim
-    </div>
+    <a href='/' className='logo-block'>
+        Prog / Blog
+    </a>
   )
 }
 

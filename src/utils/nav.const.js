@@ -1,18 +1,18 @@
 export const navConst = [
   {
     title: 'Blog',
-    linkUrl: ''
+    linkUrl: '/'
   },
   {
     title: 'About',
-    linkUrl: ''
+    linkUrl: '/about'
   },
   {
     title: 'Contact',
-    linkUrl: ''
+    linkUrl: '/contact'
   },
-  {
-    title: 'Projects',
-    linkUrl: ''
-  }
+  // {
+  //   title: 'Projects',
+  //   linkUrl: '/projects'
+  // }
 ]
